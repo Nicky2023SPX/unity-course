@@ -1,1 +1,1 @@
-// Simple Ui button script
+// Simple Ui button script - (c) Niccolò Sorrentino
