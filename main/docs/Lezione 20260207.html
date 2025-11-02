@@ -13,7 +13,13 @@
     <div class="stackedit__toc">
       
 <ul>
-<li><a href="#come-creare-uno-script">Come creare uno script</a></li>
+<li><a href="#❓-come-creare-uno-script">❓ Come creare uno script</a></li>
+<li><a href="#📏-le-regole-del-buon-script">📏 Le regole del buon SCRIPT</a>
+<ul>
+<li><a href="#🏷️-come-chiamare-un-file">🏷️ Come chiamare un file</a></li>
+<li><a href="#📌📂-come-posizionare-un-file">📌📂 Come posizionare un file</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -23,7 +29,7 @@
       <blockquote>
 <p><strong>Lezione del 07 Febbraio</strong></p>
 </blockquote>
-<h1 id="come-creare-uno-script">Come creare uno script</h1>
+<h1 id="❓-come-creare-uno-script">❓ Come creare uno script</h1>
 <ol>
 <li>Vai sul tuo progetto di Unity</li>
 <li>Seleziona un oggetto e premi in fondo all’Inspector “<strong>Add Component</strong>”</li>
@@ -49,9 +55,26 @@
 
 </code></pre>
 <p>Questo è il <strong>codice di base</strong> che andremo a modificare.<br>
-All’inizio del codice ci sono degli import. Il pezzo di codice “<code>import UnityEngine;</code>” va a dire allo script di usare la libreria base di Unity.<br>
+All’inizio del codice ci sono degli import. Sono molto importanti! Il pezzo di codice “<code>import UnityEngine;</code>” va a dire allo script di usare la libreria base di Unity.<br>
 La parte “<code>public class YourScriptName : MonoBehaviour</code>” consente l’uso di comandi di Unity nello script.<br>
-La funzione “<code>void Start()</code>” viene chiamata soltanto all’inizio del gioco, mentre la funzione “<code>void Update()</code>” viene eseguita a ogni frame del gioco.</p>
+La funzione “<code>void Start()</code>” viene chiamata soltanto UNA volta all’inizio del gioco, mentre la funzione “<code>void Update()</code>” viene eseguita a ogni frame del gioco.<br>
+Dentro alle parentesi graffe ("<code>{</code>" e “<code>}</code>” vengono messe le istruzioni da fare eseguire al richiamo di ogni funzione.</p>
+<h1 id="📏-le-regole-del-buon-script">📏 Le regole del buon SCRIPT</h1>
+<h2 id="🏷️-come-chiamare-un-file">🏷️ Come chiamare un file</h2>
+<p>Uno script non può MAI iniziare con un numero (2script.cs) e non può contenere nessun simbolo (- + " * ’ : ; ! ?), fatta eccezione per l’underscore (_).</p>
+<p>Ecco degli esempi:</p>
+<ul>
+<li>❌<code>4Danalyzer.cs</code>: il nome non può iniziare con un numero.</li>
+<li>❌<code>MyScriptReally-Wright!.cs</code>: il nome non può contenere dei simboli.</li>
+<li>✔️<code>GameController.cs</code>: tutto a posto.</li>
+<li>✔️<code>ControllerOf4Dimensions.cs</code>: tutto a posto, perché il numero non è all’inizio.</li>
+<li>❌<code>SampleAnalyzer&amp;Updater.cs</code>: il nome contiene “<code>&amp;</code>”, quindi non va bene.</li>
+</ul>
+<h2 id="📌📂-come-posizionare-un-file">📌📂 Come posizionare un file</h2>
+<blockquote>
+<p>Tutti gli script, come facilitazione, dovrebbero trovarsi sotto una cartella chiamata “<code>Scripts</code>”. Se non esiste, la si deve creare e si devono spostare tutti gli script dalla cartella principale a questa cartellina.</p>
+</blockquote>
+<p>È molto importante perché ci può aiutare a tenere in ordine il nostro progetto. Sarebbe molto scomodo lavorare in un progetto con script, immagini, file e video nella stessa cartella!</p>
 
     </div>
   </div>
