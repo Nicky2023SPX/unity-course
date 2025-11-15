@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+body {
+  margin: 0;
+}
+
+div,
+h1,
+h2,
+p,
+button,
+footer{
+  font-family: "Comfortaa", sans-serif;
+  text-align: center;
+  margin: 0;
+  border: 0;
+}
+
+
+/* "INTRO" section */
+
+#intro {
+  background-color: black;
+  padding: 20px 5px;
+}
+
+#intro h1 {
+  color: lightgreen;
+}
+
+#intro h1,
+#intro h2,
+#intro p {
+  padding: 10px;
+  color: white;
+  
+  text-align: center;
+  
+  transition: all .3s ease-in-out;
+}
+
+#intro h1:hover {
+  transform: scale(1.2);
+  color: lightcoral;
+}
+
+#intro strong {
+  color: gold;
+  transition: all .3s ease-in-out;
+}
+
+#intro strong:hover {
+  color: goldenrod;
+}
+
+#intro img {
+  transition: all .3s ease-in-out;
+}
+
+#intro img:hover {
+  transform: scale(1.2);
+}
+
+#intro .hr {
+  background-color: white;
+  width: 100%;
+  height: 5px;
+}
+
+/* "GRADIENT" sction */
+
+#gradient {
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(to bottom, black, white);
+}
+
+/* "WHAT" section */
+
+#what {
+  padding: 10px;
+  transition: all .3s ease-in-out;
+}
+
+#what:hover {
+  transform: scale(1.05);
+}
+
+#what strong {
+  color: green;
+  transition: all .3s ease-in-out;
+}
+
+#what strong:hover {
+  transform: translateY(-2px);
+  color: darkgoldenrod;
+}
+
+/* "BUTTONS" section */
+
+button {
+  box-shadow: 0 10px 0 0 black;
+  width: 100%;
+  padding: 10px;
+  margin: 25px 0 -15px 0;
+  background-color: lightgreen;
+  border-radius: 20px;
+}
+
+button:active {
+  transform: translateY(10px);
+  box-shadow: 0 0 0 0 black;
+}
+
+/* FOOTER */
+
+footer {
+  padding-top: 30px;
+  background-image: linear-gradient(45deg, greenyellow, green);
+}
