@@ -40,8 +40,8 @@ footer{
 }
 
 #intro h1:hover {
-  transform: scale(1.2);
-  color: lightcoral;
+  transform: scale(0.9);
+  rotate: Angle value(-0.9)
 }
 
 #intro strong {
@@ -58,7 +58,7 @@ footer{
 }
 
 #intro img:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
 #intro .hr {
@@ -83,7 +83,7 @@ footer{
 }
 
 #what:hover {
-  transform: scale(1.05);
+  transform: scale(0.9) rotate(-5deg);
 }
 
 #what strong {
@@ -93,14 +93,14 @@ footer{
 
 #what strong:hover {
   transform: translateY(-2px);
-  color: darkgoldenrod;
+  color: red;
 }
 
 /* "BUTTONS" section */
 
 button {
   box-shadow: 0 10px 0 0 black;
-  width: 100%;
+  width: auto;
   padding: 10px;
   margin: 25px 0 -15px 0;
   background-color: lightgreen;
