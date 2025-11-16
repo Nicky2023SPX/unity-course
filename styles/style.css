@@ -23,6 +23,17 @@ footer{
 }
 
 
+/* "TOP.BAR" section */
+
+#top-bar strong {
+  color: rgb(212, 212, 0);
+  transition: all 1s ease-in;
+}
+
+#top-bar strong:hover {
+  color: rgb(255, 255, 255);
+}
+
 /* "INTRO" section */
 
 #intro {
@@ -47,7 +58,6 @@ footer{
 
 #intro h1:hover {
   transform: scale(0.9);
-  rotate: Angle value(-0.9)
 }
 
 #intro strong {
@@ -89,7 +99,7 @@ footer{
 }
 
 #what:hover {
-  transform: scale(0.9) rotate(-5deg);
+  transform: scale(1) rotate(-2deg);
 }
 
 #what strong {
@@ -100,6 +110,10 @@ footer{
 #what strong:hover {
   transform: translateY(-2px);
   color: red;
+}
+
+#what ul {
+  list-style-type: none;
 }
 
 /* "BUTTONS" section */
