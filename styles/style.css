@@ -16,6 +16,12 @@ footer{
   border: 0;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1999;
+}
+
 
 /* "INTRO" section */
 
