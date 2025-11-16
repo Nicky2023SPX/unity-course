@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  background-color: white;
 }
 
 div,
@@ -119,6 +120,7 @@ footer{
 /* "BUTTONS" section */
 
 button {
+  transform: translateY(-10px);
   box-shadow: 0 10px 0 0 black;
   width: auto;
   padding: 10px;
@@ -128,7 +130,7 @@ button {
 }
 
 button:active {
-  transform: translateY(10px);
+  transform: translateY(0px);
   box-shadow: 0 0 0 0 black;
 }
 
