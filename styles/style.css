@@ -84,6 +84,13 @@ footer{
   height: 5px;
 }
 
+@media screen and (min-width: 1000px)
+{
+  #gradient {
+    background-image: linear-gradient(to top, black, white);
+  }
+}
+
 /* "GRADIENT" sction */
 
 #gradient {
