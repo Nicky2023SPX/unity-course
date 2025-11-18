@@ -102,12 +102,16 @@ footer{
 /* "WHAT" section */
 
 #what {
+  margin: 15px;
   padding: 10px;
   transition: all .3s ease-in-out;
+  border: 7px solid black;
+  border-radius: 10px;
 }
 
 #what:hover {
-  transform: scale(1) rotate(-2deg);
+  transform: scale(1.05) rotate(0deg);
+  background-color: lightgrey
 }
 
 #what strong {
@@ -121,13 +125,27 @@ footer{
 }
 
 #what ul {
-  list-style-type: none;
+  
+}
+
+/* "STUDENTS" section */
+
+#students {
+  padding: 20px;
+}
+
+#students div {
+  transition: all .5s ease-out;
+}
+
+#students div:hover {
+  transform: scale(1.05);
 }
 
 /* "BUTTONS" section */
 
 button {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   box-shadow: 0 10px 0 0 black;
   width: auto;
   padding: 10px;
@@ -137,8 +155,55 @@ button {
 }
 
 button:active {
-  transform: translateY(0px);
+  transform: translateY(5px);
   box-shadow: 0 0 0 0 black;
+}
+
+.rainbow {
+  animation: rainbow 10s linear infinite
+}
+
+.rainbow-fast {
+  animation: rainbow 5s linear infinite
+}
+
+@keyframes rainbow {
+  0% {
+    /*background-color: red;*/
+    background-image: linear-gradient(45deg, red, orange);
+  }
+  14% {
+    /*background-color: orangered;*/
+    background-image: linear-gradient(45deg, orangered, orange);
+  }
+  28% {
+    /*background-color: orange;*/
+    background-image: linear-gradient(45deg, orange, yellow);
+  }
+  42% {
+    /*background-color: yellow;*/
+    background-image: linear-gradient(45deg, yellow, yellowgreen);
+  }
+  56% {
+    /*background-color: yellowgreen;*/
+    background-image: linear-gradient(45deg, greenyellow, lightgreen);
+  }
+  70% {
+    /*background-color: lightgreen;*/
+    background-image: linear-gradient(45deg, lightgreen, orange);
+  }
+  84% {
+    /*background-color: orange;*/
+    background-image: linear-gradient(45deg, orange, red);
+  }
+  98% {
+    /*background-color: red;*/
+    background-image: linear-gradient(45deg, red, orange);
+  }
+  100% {
+    /*background-color: red;*/
+    background-image: linear-gradient(45deg, red, orange);
+  }
 }
 
 /* FOOTER */
