@@ -7,6 +7,23 @@
   <link rel="icon" href="images/unity.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200&icon_names=award_star,school,star" />
   <title>Corso di Unity ¦ Homepage</title>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const passcode = urlParams.get('passcode');
+
+      // Get the element to hide
+      const buttonsSection = document.getElementById('buttons');
+      const buttonsSectionHidden = document.getElementById('buttons_hidden');
+
+      // Hide the element if passcode is not '1234'
+      if (passcode !== '42666') {
+        buttonsSection.style.display = 'none';
+        buttonsSectionHidden.style.display = 'block';
+      }
+    });
+  </script>
 </head>
 <body>
   <div id="top-bar" class="w3-container w3-black sticky">
@@ -26,11 +43,17 @@
   <div id="gradient"></div>
   <div id="buttons" style="background-color: white">
     <ul class="w3-ul w3-border w3-center w3-hoverable">
-      <li><b class="w3-disabled" href="main/docs/Lezione 20260110.html"><button>Lezione 10 Gennaio</button></b><br></li>
+      <li><a href="main/docs/Lezione 20260110.html"><button>Lezione 10 Gennaio</button></a><br></li>
       <li><a href="main/docs/Lezione 20260124.html"><button>Lezione 24 Gennaio</button></a><br></li>
       <li><a href="main/docs/Lezione 20260131.html"><button>Lezione 31 Gennaio</button></a><br></li>
       <li><a href="main/docs/Lezione 20260207.html"><button>Lezione 07 Febbraio</button></a><br></li>
     </ul>
+  </div>
+  <div id="buttons_hidden" style="display: none;">
+    <h1>HTTP Error 401: <br> Non hai l'accesso a questa pagina</h1>
+    <p>Assicurati di aver inserito la giusta passkey e riprova</p>
+    <br>
+    <a href=""><button>Ricarica pagina</button></a>
   </div>
   <footer>
     © N.I.K.S. laboratories
