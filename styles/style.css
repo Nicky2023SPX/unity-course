@@ -147,6 +147,7 @@ footer{
 button {
   transform: translateY(-5px);
   box-shadow: 0 10px 0 0 black;
+  color: black;
   width: auto;
   padding: 10px;
   margin: 25px 0 -15px 0;
