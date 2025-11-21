@@ -11,14 +11,15 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const urlParams = new URLSearchParams(window.location.search);
-      const passcode = urlParams.get('passcode');
+      const passcode = urlParams.get('pwd');
+      const lessons = urlParams.get('l')
 
-      // Get the element to hide
+      // Get the elements to hide
       const buttonsSection = document.getElementById('buttons');
       const buttonsSectionHidden = document.getElementById('buttons_hidden');
 
-      // Hide the element if passcode is not '1234'
-      if (passcode !== '42666') {
+      // Hide the elements if passcode is not 'f6d18c88-cb25-4a90-a415-773bf12191dc'
+      if (passcode !== 'f6d18c88-cb25-4a90-a415-773bf12191dc-031b53b2-f341-4086-81e6-02e0244aa78c-b1f451b2-baae-4207-b54a-9ed8e10b947d-1f609ae8-66b2-4cbc-a89f-cb8f85ba2535') {
         buttonsSection.style.display = 'none';
         buttonsSectionHidden.style.display = 'block';
       }
@@ -51,7 +52,7 @@
   </div>
   <div id="buttons_hidden" style="display: none;">
     <h1>HTTP Error 401: <br> Non hai l'accesso a questa pagina</h1>
-    <p>Assicurati di aver inserito la giusta passkey e riprova</p>
+    <p>Assicurati di aver inserito la giusta passkey nell'url e riprova</p>
     <br>
     <a href=""><button>Ricarica pagina</button></a>
   </div>
