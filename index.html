@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link rel="icon" href="images/unity.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200&icon_names=award_star,school,star" />
@@ -26,21 +27,43 @@
   <div id="gradient"></div>
 
   <div id="what">
-    <h1 class="w3-xlarge"><span class="material-symbols-outlined">school</span>  Imparerai a:</h1>
-    <ul>
-      <li class="w3-large">
-        Usare il programma <strong>Unity Hub</strong> e creare il tuo <strong>primo progetto</strong>.
-      </li>
-      <li class="w3-large">
-        Riconoscere le varie parti dello <strong>Unity Editor</strong>.
-      </li>
-      <li class="w3-large">
-        Scrivere script di Unity nel <strong>C#</strong>.
-      </li>
-      <li class="w3-large">
-        Creare semplici videogiochi, <strong>divertendoti</strong>.
-      </li>
+    <div class="course-learn-section">
+    <h2>🚀 Cosa imparerai in questo corso</h2>
+    <p>Al termine di questo corso sarai in grado di sviluppare il tuo primo videogioco 3D in modo autonomo.</p>
+    
+    <ul class="learn-list">
+        <li>
+            <span class="icon">✅</span>
+            <strong>Setup Veloce:</strong> Configurerai l'ambiente di sviluppo (Unity Hub e Editor) e lancerai il tuo primo livello funzionante con un personaggio in movimento.
+        </li>
+        <li>
+            <span class="icon">🗺️</span>
+            <strong>Navigazione Esperta:</strong> Padroneggerai l'Editor di Unity, utilizzando le finestre principali (Scene, Hierarchy, Project, Game e Inspector) per organizzare asset e livelli. 
+        </li>
+        <li>
+            <span class="icon">💻</span>
+            <strong>Programmazione C#:</strong> Imparerai i fondamentali del C# specifici per il gaming, gestendo variabili, funzioni e l'input dell'utente.
+        </li>
+        <li>
+            <span class="icon">💥</span>
+            <strong>Collisioni e Logica:</strong> Implementerai le logiche di gioco base come la gestione delle collisioni e la fisica (Rigidbody).
+        </li>
+        <li>
+            <span class="icon">⛏️</span>
+            <strong>Meccaniche:</strong> Svilupperai meccaniche cruciali come il movimento del personaggio, la raccolta oggetti, l'inventario e la gestione del punteggio.
+        </li>
+        <li>
+            <span class="icon">🚀</span>
+            <strong>Progetto:</strong> Terminerai il corso con il progetto CraftMine completato e le competenze per sviluppare in autonomia le tue prossime idee.
+        </li>
     </ul>
+    
+    <div class="cta-box">
+        <p>Pronto a dare vita al tuo primo videogioco?</p>
+        <a href="join.html" class="join-button">Inizia Subito!</a>
+    </div>
+</div>
+
   </div>
   <div id="students">
     <h1><span class="material-symbols-outlined">award_star</span>  Cosa dicono i nostri studenti</h1>
@@ -62,7 +85,8 @@
         <p>Il nostro progetto (clicca)</p>
       </div>
       <div class="card-back">
-        <a id="craftmine" class="w3-xxlarge" style="display: block" href="project.html?source=home"><button class="rainbow-fast"><span class="rainbow-fast">CraftMine</span></button></a>
+        <button style="display: none" id="showcraftmine" class="rainbow-fast w3-xxlarge" onclick="document.getElementById('craftmine').style.display = 'inline'; document.getElementById('showcraftmine').style.display = 'none'"><img src="images/craftmine_doodles.jpg" width="100%"></button>
+        <a id="craftmine" class="w3-xxlarge" style="display: block" href="project.html?source=home"><button class="rainbow-fast"><span class="rainbow-fast"><img src="images/craftmine.png" width="100%"></span></button></a>
       </div>
     </div>
   </div>
