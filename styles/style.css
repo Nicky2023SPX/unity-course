@@ -107,14 +107,14 @@ footer{
   padding: 10px;
   width: available;
   transition: all .3s ease-in-out;
-  border: 7px solid black;
+  /*border: 7px solid black;*/
   border-radius: 10px;
 }
 
-#what:hover {
+/*#what:hover {
   transform: scale(1.05) rotate(0deg);
   background-color: rgb(220, 220, 220);
-}
+}*/
 
 #what strong {
   color: green;
@@ -256,7 +256,6 @@ footer {
 }
 
 .card-back {
-  background-color: #F08A5D;
   color: #fff;
   display: flex;
   align-items: center;
