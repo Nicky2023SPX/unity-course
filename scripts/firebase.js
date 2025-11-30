@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 const ownerEmail = {
     "uid": "RPGaGx4KjdR8UYJ2E7sH9CRwfci2",
@@ -58,6 +58,7 @@ window.onload = function() {
     loginButton.classList.add('w3-disabled');
       loginButton.addEventListener('click', function() {
         localStorage.clear();
+          window.location.href = "";
     });
   }
   else
@@ -72,33 +73,32 @@ window.onload = function() {
 
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
-
-  function signInWithGooglePopup() {
-  signInWithRedirect(auth, provider)
+    
+    // Esegui questo quando la pagina si carica
+    getRedirectResult(auth)
     .then((result) => {
-      // L'accesso è riuscito. L'oggetto 'result' contiene informazioni sull'utente.
-      const user = result.user;
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const accessToken = credential.accessToken;
-      
-      console.log("Accesso con Google riuscito:", user.photoURL);
+        // Se 'result' è null, significa che la pagina è stata caricata 
+        // normalmente e non è un ritorno da Google.
+        if (result) {
+            console.log("Dati di login catturati!");
 
-      localStorage.setItem('username', user.displayName);
-      localStorage.setItem('email', user.email);
-      localStorage.setItem('photo_url', user.photoURL);
-
-      window.location.href = "";
-      
-      // Reindirizza l'utente o aggiorna l'UI.
+            const user = result.user;
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            // Qui puoi fare il tuo localStorage e reindirizzamento interno
+            
+            console.log("Accesso con Google riuscito:", user.photoURL);        
+            localStorage.setItem('username', user.displayName);
+            localStorage.setItem('email', user.email);
+            localStorage.setItem('photo_url', user.photoURL);
+            
+        }
     })
     .catch((error) => {
-      // Gestione degli errori.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.customData.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-
-      console.error("Errore nell'accesso con Google:", errorMessage);
+        // Gestione degli errori se qualcosa va storto nel ritorno
+        console.error("Errore nel recupero del risultato:", error);
     });
+
+  function signInWithGooglePopup() {
+      signInWithRedirect(auth, provider);
   }
 }
