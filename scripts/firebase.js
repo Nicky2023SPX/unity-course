@@ -29,15 +29,18 @@ const ownerEmail = {
     "appName": "[DEFAULT]"
 }
 
+
 // Import the functions you need from the SDKs you need
 window.onload = function() {
   
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
+  const googleApiKey = "AIzaSyCW2vOC4VbyAvjTtcLVGcv8xEGGCmg-ncQ";
+
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyCW2vOC4VbyAvjTtcLVGcv8xEGGCmg-ncQ",
+    apiKey: googleApiKey,
     authDomain: "corso-di-unity.firebaseapp.com",
     projectId: "corso-di-unity",
     storageBucket: "corso-di-unity.firebasestorage.app",
@@ -46,14 +49,20 @@ window.onload = function() {
   };
 
   const loginButton = document.querySelector('.login-btn');
+  const loginImageDiv = document.querySelector('.login-btn-image');
+  const loginUsername = document.querySelector('.login-btn-username');
 
   if (localStorage.getItem("email") != null) {
-    /*loginButton.innerHTML = `<img src="${localStorage.getItem("photo_url")}> ${localStorage.getItem("username")}`*/
+    loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
+    loginUsername.innerHTML = `${localStorage.getItem('username')}`;
+    loginButton.classList.add('w3-disabled');
   }
-  
-  loginButton.addEventListener('click', function() {
-    signInWithGooglePopup();
-  });
+  else
+  {
+    loginButton.addEventListener('click', function() {
+        signInWithGooglePopup();
+    });
+  }
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -62,18 +71,20 @@ window.onload = function() {
   const provider = new GoogleAuthProvider();
 
   function signInWithGooglePopup() {
-  signInWithPopup(auth, provider)
+  signInWithRedirect(auth, provider)
     .then((result) => {
       // L'accesso è riuscito. L'oggetto 'result' contiene informazioni sull'utente.
       const user = result.user;
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const accessToken = credential.accessToken;
       
-      console.log("Accesso con Google riuscito:", user.displayName);
+      console.log("Accesso con Google riuscito:", user.photoURL);
 
-      localStorage.setItem("username", user.displayName);
-      localStorage.setItem("email", user.email);
-      localStorage.setItem("photo_url", user.photoURL);
+      localStorage.setItem('username', user.displayName);
+      localStorage.setItem('email', user.email);
+      localStorage.setItem('photo_url', user.photoURL);
+
+      window.location.href = "";
       
       // Reindirizza l'utente o aggiorna l'UI.
     })
