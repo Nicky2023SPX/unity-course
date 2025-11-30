@@ -55,14 +55,13 @@ window.onload = function() {
 
     // --- LOGICA DI AUTENTICAZIONE PRINCIPALE ---
     
-    setPersistence(auth, browserLocalPersistence)
-        .then(() => {
-            onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
                 
                 // Pulisci i listener vecchi
                 loginButton.removeEventListener('click', handleLoginRedirect);
                 loginButton.removeEventListener('click', handleLogout);
-
+                
+                alert(user);
                 if (user) {
                     // UTENTE LOGGATO (Questo si attiva anche dopo il redirect!)
                     console.log("Utente loggato:", user.displayName);
@@ -89,5 +88,8 @@ window.onload = function() {
                     loginButton.addEventListener('click', handleLoginRedirect);
                 }
             });
-        });
+    
+    setPersistence(auth, browserLocalPersistence)
+        .then(() => {}
+ 
 }
