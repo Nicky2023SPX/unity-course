@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 const ownerEmail = {
     "uid": "RPGaGx4KjdR8UYJ2E7sH9CRwfci2",
@@ -56,6 +56,9 @@ window.onload = function() {
     loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
     loginUsername.innerHTML = `${localStorage.getItem('username')}`;
     loginButton.classList.add('w3-disabled');
+      loginButton.addEventListener('click', function() {
+        localStorage.clear();
+    });
   }
   else
   {
