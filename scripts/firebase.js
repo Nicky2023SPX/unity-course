@@ -4,6 +4,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js"; 
 import { 
     getAuth, 
+    getRedirectResult,
     GoogleAuthProvider, 
     signInWithRedirect, 
     onAuthStateChanged, // <-- Aggiunto!
@@ -53,6 +54,20 @@ window.onload = function() {
             window.location.href = ""; 
         });
     }
+    
+    
+    getRedirectResult(auth)
+    .then((result) => {
+        alert(result);
+        if (result) {
+            // Successo: l'utente è loggato
+            alert("Dati catturati con getRedirectResult! " + result.user);
+            // ... (Salvataggio LocalStorage)
+        }
+    })
+    .catch((error) => {
+        // Gestione degli errori, qui vedresti perché fallisce
+    });
 
     // --- LOGICA DI AUTENTICAZIONE PRINCIPALE ---
     
