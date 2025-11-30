@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
 const ownerEmail = {
     "uid": "RPGaGx4KjdR8UYJ2E7sH9CRwfci2",
@@ -74,6 +74,11 @@ window.onload = function() {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
     
+    setPersistence(auth, browserLocalPersistence)
+    .then(() => {
+        // Ora la sessione è più robusta!
+    });
+    
     // Esegui questo quando la pagina si carica
     getRedirectResult(auth)
     .then((result) => {
@@ -101,4 +106,4 @@ window.onload = function() {
   function signInWithGooglePopup() {
       signInWithRedirect(auth, provider);
   }
-}
+}}
