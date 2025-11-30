@@ -31,6 +31,7 @@ window.onload = function() {
     const app = initializeApp(firebaseConfig); 
     const auth = getAuth(app); 
     const provider = new GoogleAuthProvider();
+    alert("Auth Inizializzato!"); // <-- TEST QUI!
     
     // --- SELEZIONE ELEMENTI DOM ---
     const loginButton = document.querySelector('.login-btn');
@@ -90,6 +91,6 @@ window.onload = function() {
             });
     
     setPersistence(auth, browserLocalPersistence)
-        .then(() => {}
+        .then(() => {})
  
 }
