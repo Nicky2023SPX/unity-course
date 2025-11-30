@@ -8,8 +8,9 @@ window.onload = function() {
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
+  const googleApiKey = secrets.GOOGLE_API_KEY:
   const firebaseConfig = {
-    apiKey: "${{ secrets.google_api_key }}",
+    apiKey: googleApiKey,
     authDomain: "corso-di-unity.firebaseapp.com",
     projectId: "corso-di-unity",
     storageBucket: "corso-di-unity.firebasestorage.app",
