@@ -118,22 +118,6 @@ window.onload = function() {
   const loginImageDiv = document.querySelector('.login-btn-image');
   const loginUsername = document.querySelector('.login-btn-username');
 
-  if (localStorage.getItem("email") != null) {
-    loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
-    loginUsername.innerHTML = `${localStorage.getItem('username')}`;
-    loginButton.classList.add('w3-disabled');
-      loginButton.addEventListener('click', function() {
-        localStorage.clear();
-          window.location.href = "";
-    });
-  }
-  else
-  {
-    loginButton.addEventListener('click', function() {
-        signInWithGooglePopup();
-    });
-  }
-
   // Initialize Firebase
   // 1. Inizializza auth e provider come hai fatto
 const auth = getAuth(app);
@@ -141,45 +125,50 @@ const provider = new GoogleAuthProvider();
 
 // 2. Togli il blocco getRedirectResult e setPersistence da window.onload
 
-// 3. Usa onAuthStateChanged (il metodo Firebase standard)
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // L'utente è loggato (o appena tornato dal redirect!)
-        console.log("Utente autenticato via Firebase:", user.displayName);
-        
-        // Salva i dati in localStorage ORA
-        localStorage.setItem('username', user.displayName);
-        localStorage.setItem('email', user.email);
-        localStorage.setItem('photo_url', user.photoURL);
-        
-        // Aggiorna l'UI per mostrare l'utente loggato
-        loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
-    loginUsername.innerHTML = `${localStorage.getItem('username')}`;
-    loginButton.classList.add('w3-disabled');
-      loginButton.addEventListener('click', function() {
-        localStorage.clear();
-          window.location.href = "";
-    }); 
-        
-        // Se necessario, reindirizza (ma solo se non sei già nella pagina di destinazione)
-        // window.location.href = "/pagina-riservata.html";
+// 3. SETTA PERSISTENZA E INIZIA IL LISTENER STATO
+    setPersistence(auth, browserLocalPersistence)
+        .then(() => {
+            // UNA VOLTA INIZIALIZZATO TUTTO, ASCOLTA LO STATO
+            onAuthStateChanged(auth, (user) => {
+                
+                // Rimuoviamo eventuali listener precedenti per evitare duplicazioni
+                // (utile soprattutto se stai gestendo la disconnessione)
+                loginButton.removeEventListener('click', handleLoginRedirect);
+                loginButton.removeEventListener('click', handleLogout);
 
-    } else {
-        // L'utente è disconnesso
-        console.log("Utente disconnesso. Mostra il pulsante di login.");
-        
-        // Imposta l'azione per iniziare il login
-        loginButton.addEventListener('click', function() {
-            signInWithRedirect(auth, provider); // SOLO redirect
+                if (user) {
+                    // UTENTE LOGGATO
+                    console.log("Utente loggato:", user.displayName);
+                    
+                    // Salva dati (non usare più localStorage.getItem, usa user.displayName!)
+                    localStorage.setItem('username', user.displayName);
+                    localStorage.setItem('email', user.email);
+                    localStorage.setItem('photo_url', user.photoURL);
+                    
+                    // Aggiorna UI per lo stato loggato (mostra foto, abilita logout)
+                    loginImageDiv.innerHTML = ``;
+                    loginUsername.innerHTML = `${user.displayName}`;
+                    loginButton.classList.add('w3-disabled'); 
+                    
+                    // Imposta il pulsante come LOGOUT
+                    loginButton.addEventListener('click', handleLogout); 
+
+                } else {
+                    // UTENTE DISCONNESSO
+                    console.log("Utente disconnesso. Prepara per il login.");
+                    
+                    // Imposta il pulsante come LOGIN
+                    loginButton.classList.remove('w3-disabled');
+                    loginButton.addEventListener('click', handleLoginRedirect);
+                    
+                    // Pulisci UI se l'utente si è disconnesso da un'altra tab
+                    loginImageDiv.innerHTML = ''; 
+                    loginUsername.innerHTML = 'LOGIN';
+                }
+            });
         });
-    }
-});
   function signInWithGooglePopup() {
       signInWithRedirect(auth, provider);
   }
 }
-
-  function signInWithGooglePopup() {
-      signInWithRedirect(auth, provider);
-  }
 }
