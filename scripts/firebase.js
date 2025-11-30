@@ -69,41 +69,42 @@ window.onload = function() {
   }
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  // 1. Inizializza auth e provider come hai fatto
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-    
-    setPersistence(auth, browserLocalPersistence)
-    .then(() => {
-        // Ora la sessione è più robusta!
-    });
-    
-    // Esegui questo quando la pagina si carica
-    getRedirectResult(auth)
-    .then((result) => {
-        // Se 'result' è null, significa che la pagina è stata caricata 
-        // normalmente e non è un ritorno da Google.
-        if (result) {
-            console.log("Dati di login catturati!");
+// 2. Togli il blocco getRedirectResult e setPersistence da window.onload
 
-            const user = result.user;
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            // Qui puoi fare il tuo localStorage e reindirizzamento interno
-            
-            console.log("Accesso con Google riuscito:", user.photoURL);        
-            localStorage.setItem('username', user.displayName);
-            localStorage.setItem('email', user.email);
-            localStorage.setItem('photo_url', user.photoURL);
-            
-        }
-    })
-    .catch((error) => {
-        // Gestione degli errori se qualcosa va storto nel ritorno
-        console.error("Errore nel recupero del risultato:", error);
-    });
+// 3. Usa onAuthStateChanged (il metodo Firebase standard)
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // L'utente è loggato (o appena tornato dal redirect!)
+        console.log("Utente autenticato via Firebase:", user.displayName);
+        
+        // Salva i dati in localStorage ORA
+        localStorage.setItem('username', user.displayName);
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('photo_url', user.photoURL);
+        
+        // Aggiorna l'UI per mostrare l'utente loggato
+        loginImageDiv.innerHTML = ``;
+        loginUsername.innerHTML = `${user.displayName}`;
+        loginButton.classList.add('w3-disabled'); 
+        
+        // Se necessario, reindirizza (ma solo se non sei già nella pagina di destinazione)
+        // window.location.href = "/pagina-riservata.html";
 
+    } else {
+        // L'utente è disconnesso
+        console.log("Utente disconnesso. Mostra il pulsante di login.");
+        
+        // Imposta l'azione per iniziare il login
+        loginButton.addEventListener('click', function() {
+            signInWithRedirect(auth, provider); // SOLO redirect
+        });
+    }
+});
   function signInWithGooglePopup() {
       signInWithRedirect(auth, provider);
   }
-}}
+}
