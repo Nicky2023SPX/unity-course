@@ -53,13 +53,7 @@ window.onload = function() {
   const loginUsername = document.querySelector('.login-btn-username');
 
   if (localStorage.getItem("email") != null) {
-    loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
-    loginUsername.innerHTML = `${localStorage.getItem('username')}`;
-    loginButton.classList.add('w3-disabled');
-      loginButton.addEventListener('click', function() {
-        localStorage.clear();
-          window.location.href = "";
-    });
+    
   }
   else
   {
@@ -159,9 +153,13 @@ onAuthStateChanged(auth, (user) => {
         localStorage.setItem('photo_url', user.photoURL);
         
         // Aggiorna l'UI per mostrare l'utente loggato
-        loginImageDiv.innerHTML = ``;
-        loginUsername.innerHTML = `${user.displayName}`;
-        loginButton.classList.add('w3-disabled'); 
+        loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
+    loginUsername.innerHTML = `${localStorage.getItem('username')}`;
+    loginButton.classList.add('w3-disabled');
+      loginButton.addEventListener('click', function() {
+        localStorage.clear();
+          window.location.href = "";
+    }); 
         
         // Se necessario, reindirizza (ma solo se non sei già nella pagina di destinazione)
         // window.location.href = "/pagina-riservata.html";
