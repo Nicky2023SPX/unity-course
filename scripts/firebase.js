@@ -71,15 +71,15 @@ window.onload = function() {
             // UTENTE LOGGATO
             console.log("Utente loggato:", localStorage.getItem('username'));
 
-            loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}" alt="User Icon">`;
+            loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
             loginUsername.innerHTML = `${localStorage.getItem('username')}`;
             loginButton.classList.add('w3-green');
 
             loginButton.parentElement.innerHTML += `
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">Link 1</a>
-                        <a href="#" class="w3-bar-item w3-button">Link 2</a>
-                        <a href="#" class="w3-bar-item w3-button logout-btn">Logout</a>
+                        <a href="#" class="w3-bar-item w3-button">La mia area personale</a>
+                        <a href="#" class="w3-bar-item w3-button">Le mie lezioni</a>
+                        <a href="#" class="w3-bar-item w3-button w3-red logout-btn"><i class="bi bi-box-arrow-left"></i> Logout</a>
                     </div>
             `;
             const logoutButton = document.querySelector('.logout-btn');
