@@ -60,18 +60,18 @@ window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     const displayName = urlParams.get('username');
     const email = urlParams.get('email');
-    const photoURL = urlParams.get('photoURL');
+    const photoURL = urlParams.get('photoUrl');
     if (email != null) {
         localStorage.setItem('username', displayName);
         localStorage.setItem('email', email);
         localStorage.setItem('photo_url', photoURL);
         window.location = window.location.pathname;
     } else {
-        if (localStorage.getItem('email') != null) {
+        if (localStorage.getItem('username') != null) {
             // UTENTE LOGGATO
             console.log("Utente loggato:", localStorage.getItem('username'));
 
-            loginImageDiv.innerHTML = ``;
+            loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}" alt="User Icon">`;
             loginUsername.innerHTML = `${localStorage.getItem('username')}`;
             loginButton.classList.remove('w3-disabled'); // Lo abilito per il logout
 
