@@ -22,7 +22,7 @@ window.onload = function() {
     const googleApiKey = "AIzaSyCW2vOC4VbyAvjTtcLVGcv8xEGGCmg-ncQ";    
     const firebaseConfig = {
       apiKey: googleApiKey,
-      authDomain: "corso-di-unity.firebaseapp.com",
+      authDomain: "corso-di-unity.firebase.com",
       projectId: "corso-di-unity",
       storageBucket: "corso-di-unity.firebasestorage.app",
       messagingSenderId: "387995337831",
@@ -67,9 +67,9 @@ window.onload = function() {
                 
                 // TEST MOBILE: ALERT per vedere lo stato dell'utente
                 if (user) {
-                    alert("LOGIN RIUSCITO! Utente: " + user.displayName);
+                    console.log("LOGIN RIUSCITO! Utente: " + user.displayName);
                 } else {
-                    alert("Utente Disconnesso (o Handshake Fallito)");
+                    console.log("Utente Disconnesso (o Handshake Fallito)");
                 }
 
                 if (user) {
@@ -93,9 +93,10 @@ window.onload = function() {
                     
                     // Pulisci UI e imposta il pulsante come LOGIN
                     loginImageDiv.innerHTML = '';
-                    loginUsername.innerHTML = 'LOGIN';
+                    loginUsername.innerHTML = 'Login';
                     loginButton.classList.remove('w3-disabled');
                     loginButton.addEventListener('click', handleLoginRedirect);
+                    window.location.href = "https://corso-di-unity.firebaseapp.com/";
                 }
             });
         });
