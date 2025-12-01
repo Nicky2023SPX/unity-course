@@ -49,7 +49,7 @@ window.onload = function() {
         console.log("Logout richiesto.");
         signOut(auth).then(() => {
             localStorage.clear();
-            window.location.href = "";
+            window.location.href = "https://corso-di-unity.firebaseapp.com/logout.html";
         });
     }
 
