@@ -73,11 +73,17 @@ window.onload = function() {
 
             loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}" alt="User Icon">`;
             loginUsername.innerHTML = `${localStorage.getItem('username')}`;
-            loginButton.classList.remove('w3-disabled'); // Lo abilito per il logout
+            loginButton.classList.add('w3-green');
 
-            // Imposta il pulsante come LOGOUT
-            loginButton.addEventListener('click', handleLogout);
-
+            loginButton.parentElement.innerHTML += `
+                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                        <a href="#" class="w3-bar-item w3-button logout-btn">Logout</a>
+                    </div>
+            `;
+            const logoutButton = document.querySelector('.logout-btn');
+            logoutButton.addEventListener('click', handleLogout);
         } else {
             // UTENTE DISCONNESSO
             console.log("Utente disconnesso. Prepara per il login.");
