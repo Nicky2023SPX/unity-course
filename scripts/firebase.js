@@ -1,10 +1,23 @@
-// 1. IMPORTAZIONI CORRETTE (Assicurati che questa sia la riga in cima al tuo file!)
+// ====================================================================
+// 1. IMPORTAZIONI MODULARI
+// ====================================================================
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js"; 
-import { getAuth, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged, setPersistence, browserLocalPersistence, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js"; 
+import { 
+    getAuth, 
+    GoogleAuthProvider, 
+    signInWithRedirect, 
+    onAuthStateChanged, // Per il listener di stato
+    setPersistence, 
+    browserLocalPersistence, // Per la persistenza locale
+    signOut // Per la disconnessione
+} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js"; 
+
+// ====================================================================
 
 window.onload = function() {
 
-    // --- CONFIGURAZIONE E INIZIALIZZAZIONE (Una sola volta!) ---
+    // --- CONFIGURAZIONE E INIZIALIZZAZIONE ---
     
     const googleApiKey = "AIzaSyCW2vOC4VbyAvjTtcLVGcv8xEGGCmg-ncQ";    
     const firebaseConfig = {
@@ -19,7 +32,6 @@ window.onload = function() {
     const app = initializeApp(firebaseConfig); 
     const auth = getAuth(app); 
     const provider = new GoogleAuthProvider();
-    alert("Auth Inizializzato!"); // <-- TEST QUI!
     
     // --- SELEZIONE ELEMENTI DOM ---
     const loginButton = document.querySelector('.login-btn');
@@ -35,28 +47,33 @@ window.onload = function() {
 
     function handleLogout() {
         console.log("Logout richiesto.");
-        // Usiamo la funzione modulare signOut
         signOut(auth).then(() => { 
             localStorage.clear();
             window.location.href = ""; 
         });
     }
+
+    // --- LOGICA DI AUTENTICAZIONE PRINCIPALE (Ordina Corretto!) ---
     
-    
-        // --- LOGICA DI AUTENTICAZIONE PRINCIPALE ---
-    
+    // 1. Impostiamo la persistenza in modo asincrono
     setPersistence(auth, browserLocalPersistence)
         .then(() => {
-    
-    onAuthStateChanged(auth, (user) => {
+            // 2. SOLO DOPO, impostiamo il listener di stato per intercettare il risultato del redirect
+            onAuthStateChanged(auth, (user) => {
                 
                 // Pulisci i listener vecchi
                 loginButton.removeEventListener('click', handleLoginRedirect);
                 loginButton.removeEventListener('click', handleLogout);
                 
-                alert(user);
+                // TEST MOBILE: ALERT per vedere lo stato dell'utente
                 if (user) {
-                    // UTENTE LOGGATO (Questo si attiva anche dopo il redirect!)
+                    alert("LOGIN RIUSCITO! Utente: " + user.displayName);
+                } else {
+                    alert("Utente Disconnesso (o Handshake Fallito)");
+                }
+
+                if (user) {
+                    // UTENTE LOGGATO
                     console.log("Utente loggato:", user.displayName);
 
                     localStorage.setItem('username', user.displayName);
@@ -65,7 +82,7 @@ window.onload = function() {
                     
                     loginImageDiv.innerHTML = ``;
                     loginUsername.innerHTML = `${user.displayName}`;
-                    loginButton.classList.add('w3-disabled');
+                    loginButton.classList.remove('w3-disabled'); // Lo abilito per il logout
                     
                     // Imposta il pulsante come LOGOUT
                     loginButton.addEventListener('click', handleLogout);
