@@ -77,8 +77,8 @@ window.onload = function() {
 
             loginButton.parentElement.innerHTML += `
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="#" class="w3-bar-item w3-button">La mia area personale</a>
-                        <a href="#" class="w3-bar-item w3-button">Le mie lezioni</a>
+                        <a href="space.html" class="w3-bar-item w3-button">La mia area personale</a>
+                        <a href="lessons.html" class="w3-bar-item w3-button">Le mie lezioni</a>
                         <a href="#" class="w3-bar-item w3-button w3-red logout-btn"><i class="bi bi-box-arrow-left"></i> Logout</a>
                     </div>
             `;
@@ -89,7 +89,7 @@ window.onload = function() {
             console.log("Utente disconnesso. Prepara per il login.");
 
             // Pulisci UI e imposta il pulsante come LOGIN
-            loginImageDiv.innerHTML = '';
+            loginImageDiv.innerHTML = '<i class="bi bi-box-arrow-right"></i>';
             loginUsername.innerHTML = 'Login';
             loginButton.classList.remove('w3-disabled');
             loginButton.addEventListener('click', handleLoginRedirect);
