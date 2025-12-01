@@ -22,7 +22,7 @@ window.onload = function() {
     const googleApiKey = "AIzaSyCW2vOC4VbyAvjTtcLVGcv8xEGGCmg-ncQ";    
     const firebaseConfig = {
       apiKey: googleApiKey,
-      authDomain: "corso-di-unity.firebase.com",
+      authDomain: "corso-di-unity.firebaseapp.com",
       projectId: "corso-di-unity",
       storageBucket: "corso-di-unity.firebasestorage.app",
       messagingSenderId: "387995337831",
@@ -42,7 +42,8 @@ window.onload = function() {
 
     function handleLoginRedirect() {
         console.log("Tentativo di Login avviato.");
-        signInWithRedirect(auth, provider);
+        window.location.href = "https://corso-di-unity.firebaseapp.com/index.html";
+        //signInWithRedirect(auth, provider);
     }
 
     function handleLogout() {
@@ -54,6 +55,20 @@ window.onload = function() {
     }
 
     // --- LOGICA DI AUTENTICAZIONE PRINCIPALE (Ordina Corretto!) ---
+
+    // --- CONTROLLO INIZIALE (LOGIN NEL PARAMETRO) ---
+    // Test URL: ?username=Nikko&email=solonikko23@gmail.com&photoUrl=https://lh3.googleusercontent.com/a/ACg8ocJbByb6wsOpYm78pUUuArEwEC_SulMTXG35Vm0DIpm0nHo3g790=s96-c
+    const urlParams = new URLSearchParams(window.location.search);
+    const displayName = urlParams.get('username');
+    const email = urlParams.get('email');
+    const photoURL = urlParams.get('photoURL');
+    if (email != null)
+    {
+        localStorage.setItem('username', displayName);
+        localStorage.setItem('email', email);
+        localStorage.setItem('photo_url', photoURL);
+        window.location = window.location.pathname;
+    }
     
     // 1. Impostiamo la persistenza in modo asincrono
     setPersistence(auth, browserLocalPersistence)
@@ -65,13 +80,13 @@ window.onload = function() {
                 loginButton.removeEventListener('click', handleLoginRedirect);
                 loginButton.removeEventListener('click', handleLogout);
                 
-                if (user) {
+                if (localStorage.getItem('email') != null) {
                     console.log("LOGIN RIUSCITO! Utente: " + user.displayName);
                 } else {
                     console.log("Utente Disconnesso (o Handshake Fallito)");
                 }
 
-                if (user) {
+                if (localStorage.getItem('email') != null) {
                     // UTENTE LOGGATO
                     console.log("Utente loggato:", user.displayName);
 
