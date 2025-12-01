@@ -1,19 +1,6 @@
 // 1. IMPORTAZIONI CORRETTE (Assicurati che questa sia la riga in cima al tuo file!)
-import { 
-    initializeApp 
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js"; 
-import { 
-    getAuth, 
-    getRedirectResult,
-    GoogleAuthProvider, 
-    signInWithRedirect, 
-    onAuthStateChanged, // <-- Aggiunto!
-    setPersistence, 
-    browserLocalPersistence, 
-    signOut // <-- Aggiunto!
-} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js"; 
-
-// (Ho rimosso l'oggetto ownerEmail che non è usato nella logica)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js"; 
+import { getAuth, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged, setPersistence, browserLocalPersistence, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js"; 
 
 window.onload = function() {
 
@@ -56,20 +43,10 @@ window.onload = function() {
     }
     
     
-    getRedirectResult(auth)
-    .then((result) => {
-        alert(result);
-        if (result) {
-            // Successo: l'utente è loggato
-            alert("Dati catturati con getRedirectResult! " + result.user);
-            // ... (Salvataggio LocalStorage)
-        }
-    })
-    .catch((error) => {
-        // Gestione degli errori, qui vedresti perché fallisce
-    });
-
-    // --- LOGICA DI AUTENTICAZIONE PRINCIPALE ---
+        // --- LOGICA DI AUTENTICAZIONE PRINCIPALE ---
+    
+    setPersistence(auth, browserLocalPersistence)
+        .then(() => {
     
     onAuthStateChanged(auth, (user) => {
                 
@@ -104,8 +81,5 @@ window.onload = function() {
                     loginButton.addEventListener('click', handleLoginRedirect);
                 }
             });
-    
-    setPersistence(auth, browserLocalPersistence)
-        .then(() => {})
- 
+        });
 }
