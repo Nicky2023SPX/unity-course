@@ -95,7 +95,6 @@ window.onload = function() {
                     loginUsername.innerHTML = 'Login';
                     loginButton.classList.remove('w3-disabled');
                     loginButton.addEventListener('click', handleLoginRedirect);
-                    window.location.href = "https://corso-di-unity.firebaseapp.com/";
                 }
             });
         });
