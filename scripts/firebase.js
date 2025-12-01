@@ -65,7 +65,6 @@ window.onload = function() {
                 loginButton.removeEventListener('click', handleLoginRedirect);
                 loginButton.removeEventListener('click', handleLogout);
                 
-                // TEST MOBILE: ALERT per vedere lo stato dell'utente
                 if (user) {
                     console.log("LOGIN RIUSCITO! Utente: " + user.displayName);
                 } else {
