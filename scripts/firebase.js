@@ -74,9 +74,14 @@ window.onload = function() {
             loginImageDiv.innerHTML = `<img src="${localStorage.getItem('photo_url')}">`;
             loginUsername.innerHTML = `${localStorage.getItem('username')}`;
             loginButton.classList.add('w3-green');
+            loginButton.classList.remove('w3-dropdown-hover');
+            loginButton.classList.add('w3-dropdown-click');
+            
+            
 
             loginButton.parentElement.innerHTML += `
                     <div class="w3-dropdown-content w3-bar-block w3-border">
+                        <div style="height: 50px"></div>
                         <a href="space.html" class="w3-bar-item w3-button">La mia area personale</a>
                         <a href="lessons.html" class="w3-bar-item w3-button">Le mie lezioni</a>
                         <a href="#" class="w3-bar-item w3-button w3-red logout-btn"><i class="bi bi-box-arrow-left"></i> Logout</a>
