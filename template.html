@@ -2,27 +2,37 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/index.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link rel="icon" href="images/unity.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200&icon_names=award_star,school,star" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <title>Corso di Unity ¦ Homepage</title>
 </head>
-<body class="">
-  <div id="top-bar" class="w3-container w3-black sticky">
-    <img src="images/unity.png" width="10%"> ¦ Unity Course by <strong>Niccolò S.</strong>
-    <div class="w3-bar w3-black">
-      <div class="w3-dropdown-hover w3-bar-item w3-button w3-mobile w3-round-xlarge w3-right">
+<body class="w3-container" style="border: 0; margin: 0; padding: 0">
+  <!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right w3-black w3-animate-left" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-large w3-left w3-red" style="width: 100%; top: 0"> &times; Chiudi</button>
+  <div style="height: 95px"></div>
+    <img src="images/unity.png" width="10%" alt="logo"> ¦ Unity Course by <strong>Niccolò S.</strong>
+  <div style="height: 50px"></div>
+  <div class="w3-dropdown-hover">
         <a href="#" class="w3-button w3-mobile w3-round-xlarge w3-right login-btn"><span class="login-btn-image"></span><span class="login-btn-username">Login</span></a>
       </div>
       <a href="index.html" class="w3-bar-item w3-button w3-mobile w3-green w3-round-xlarge">Home</a>
       <a href="who.html" class="w3-bar-item w3-button w3-mobile w3-round-xlarge">Chi sono</a>
       <a href="join.html" class="w3-bar-item w3-button w3-mobile w3-round-xlarge">Unisciti ora</a>
-    </div>
+
+</div>
+  <div class="w3-black">
+    <button class="w3-button w3-xlarge w3-left" onclick="w3_open()"> ☰ </button>
+  <div class="w3-container">
+    <h1>Title</h1>
   </div>
+</div>
   <div id="gradient"></div>
 </body>
 <script type="module" src="scripts/firebase.js"></script>
+<script src="scripts/menu.js"></script>
 </html>
