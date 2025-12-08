@@ -78,7 +78,7 @@
     transition: all 0.3s ease;
 }
 
-.join-button:hover {
+.join-button:active {
     transform: scale(1.1);
 }
 
