@@ -1,0 +1,96 @@
+/* Contenitore della sezione */
+.course-learn-section {
+    max-width: 900px; /* Larghezza massima consigliata */
+    margin: 40px auto; /* Centra la sezione */
+    padding: 30px;
+    background-color: #f7f7f7; /* Sfondo leggero per distinguere la sezione */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-learn-section h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.course-learn-section p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Stile per la lista di apprendimento */
+.learn-list {
+    list-style: none; /* Rimuove i pallini della lista */
+    padding: 0;
+    margin: 0;
+}
+
+.learn-list li {
+    display: flex; /* Permette all'icona e al testo di stare sulla stessa riga */
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    line-height: 1.6;
+}
+
+.learn-list li:last-child {
+    border-bottom: none; /* Rimuove la linea dall'ultimo elemento */
+}
+
+/* Stile per le icone (emoji) */
+.learn-list .icon {
+    font-size: 1.5em; /* Rende l'icona più grande */
+    margin-right: 15px;
+    min-width: 30px; /* Assicura che lo spazio per l'icona sia costante */
+    text-align: center;
+}
+
+/* Stile per la Call to Action (CTA) Box */
+.cta-box {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e6f7ff; /* Colore di sfondo che attira l'attenzione */
+    border: 1px solid #cceeff;
+    border-radius: 5px;
+}
+
+.cta-box p {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+/* Stile per il pulsante CTA */
+.join-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff6b6b; /* Un colore vivace per la CTA */
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.join-button:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 993px) {
+    /* Stile per le icone (emoji) */
+.learn-list .icon {
+    width: 0%;
+    font-size: 1.5em; /* Rende l'icona più grande */
+    margin-right: 15px;
+    min-width: 30px; /* Assicura che lo spazio per l'icona sia costante */
+    text-align: center;
+}
+}
+
+

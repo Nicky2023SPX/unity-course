@@ -1,0 +1,58 @@
+body {
+    overflow-x: hidden;
+}
+
+.article-card {
+    background-color: #d0d0d0;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    mask: inherit;
+    transition: all .2s cubic-bezier(1, 0.1, 0.1, 1);
+}
+
+.article-card:hover {
+    cursor: pointer;
+}
+
+.article-card:active {
+    background-color: #d0d0d0;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    mask: inherit;
+    transform: scale(1.1);
+}
+
+.article-card h1 {
+    font-size: x-large;
+}
+
+.article-card h2 {
+    font-size: small;
+}
+
+.article-card .article-spacing {
+    height: 25px;
+}
+
+.article-card .article-preview-container {
+    position: relative;
+}
+
+.article-card .article-preview {
+    height: 100px;
+    overflow-y: hidden;
+    width: 100%;
+    position: absolute;
+}
+
+.article-card .article-overlay {
+    background-image: linear-gradient(to top, #d0d0d0, transparent);
+    height: 100px;
+    position: inherit;
+}
+
+.article-card .article-uuid {
+    display: none;
+}

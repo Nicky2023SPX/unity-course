@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="icon" href="images/unity.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,1,200&icon_names=award_star,school,star" />
+  <title>Corso di Unity ¦ Homepage</title>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const passcode = urlParams.get('pwd');
+      const lessons = urlParams.get('l')
+
+      // Get the elements to hide
+      const buttonsSection = document.getElementById('buttons');
+      const buttonsSectionHidden = document.getElementById('buttons_hidden');
+      // Hide the elements if passcode is not 'f6d18c88-cb25-4a90-a415-773bf12191dc'
+      if (passcode !== 'f6d18c88-cb25-4a90-a415-773bf12191dc-031b53b2-f341-4086-81e6-02e0244aa78c-b1f451b2-baae-4207-b54a-9ed8e10b947d-1f609ae8-66b2-4cbc-a89f-cb8f85ba2535') {
+        buttonsSection.style.display = 'none';
+        buttonsSectionHidden.style.display = 'block';
+      }
+    });
+  </script>
+</head>
+<body>
+  <div id="top-bar" class="w3-container w3-black sticky">
+    <img src="images/unity.png" width="10%"> ¦ Unity Course by <strong>Niccolò S.</strong>
+    <div class="w3-bar w3-black">
+      <a href="index.html" class="w3-bar-item w3-button w3-mobile w3-round-xlarge">Home</a>
+      <a href="who.html" class="w3-bar-item w3-button w3-mobile w3-round-xlarge">Chi sono</a>
+      <a href="join.html" class="w3-bar-item w3-button w3-mobile w3-round-xlarge">Unisciti ora</a>
+    </div>
+  </div>
+  
+  <div id="intro">
+    <h1>Contenuti del <strong>Corso di Unity</strong></h1><div class="hr"></div>
+    <p>Questa pagina contiene <strong>tutte le lezioni pubblicate</strong>!</p>
+  </div>
+  <div id="gradient"></div>
+  <div id="buttons" style="background-color: white">
+    <ul class="w3-ul w3-border w3-center w3-hoverable">
+      <li><a href="main/docs/Lezione 20260110.html"><button>Lezione 10 Gennaio</button></a><br></li>
+      <li><a href="main/docs/Lezione 20260124.html"><button>Lezione 24 Gennaio</button></a><br></li>
+      <li><a href="main/docs/Lezione 20260131.html"><button>Lezione 31 Gennaio</button></a><br></li>
+      <li><a href="main/docs/Lezione 20260207.html"><button>Lezione 07 Febbraio</button></a><br></li>
+    </ul>
+  </div>
+  <div id="buttons_hidden" style="display: none;">
+    <h1>HTTP Error 401: <br> Non hai l'accesso a questa pagina</h1>
+    <p>Assicurati di aver inserito la giusta passkey nell'url e riprova</p>
+    <br>
+    <a href=""><button>Ricarica pagina</button></a>
+  </div>
+  <footer>
+    © N.I.K.S. laboratories
+    <div style="height: 50px"></div>
+    <a href="content.html">Vai al contenuto del corso</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+body {
+  margin: 0;
+  background-color: white;
+  text-align: center;
+}
+
+div,
+h1,
+h2,
+p,
+button,
+footer{
+  font-family: "Comfortaa", sans-serif;
+  text-align: center;
+  margin: 0;
+  border: 0;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1999;
+}
+
+
+/* "TOP.BAR" section */
+
+#top-bar strong {
+  color: rgb(212, 212, 0);
+  transition: all 1s ease-in;
+}
+
+#top-bar strong:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* "INTRO" section */
+
+#intro {
+  background-color: black;
+  padding: 20px 5px;
+}
+
+#intro h1 {
+  color: lightgreen;
+}
+
+#intro h1,
+#intro h2,
+#intro p {
+  padding: 10px;
+  color: white;
+  
+  text-align: center;
+  
+  transition: all .3s ease-in-out;
+}
+
+#intro h1:hover {
+  transform: scale(0.85);
+}
+
+#intro strong {
+  color: gold;
+  transition: all .3s ease-in-out;
+}
+
+#intro strong:hover {
+  color: red;
+}
+
+#intro img {
+  transition: all .3s ease-in-out;
+}
+
+#intro img:hover {
+  transform: scale(1.4);
+}
+
+#intro .hr {
+  background-color: white;
+  width: 100%;
+  height: 5px;
+}
+
+/*@media screen and (max-width: 993px)
+{
+  #intro {
+    background-color: red;
+  }
+}*/
+
+/* "GRADIENT" sction */
+
+#gradient {
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(to bottom, black, white);
+}
+
+/* "WHAT" section */
+
+#what {
+  margin: 15px;
+  padding: 10px;
+  width: available;
+  transition: all .3s ease-in-out;
+  /*border: 7px solid black;*/
+  border-radius: 10px;
+}
+
+/*#what:hover {
+  transform: scale(1.05) rotate(0deg);
+  background-color: rgb(220, 220, 220);
+}*/
+
+#what strong {
+  color: green;
+  transition: all .3s ease-in-out;
+}
+
+#what strong:hover {
+  transform: translateY(-2px);
+  color: red;
+}
+
+/* "STUDENTS" section */
+
+#students {
+  padding: 20px;
+}
+
+#students div {
+  transition: all .5s ease-out;
+}
+
+#students div:hover {
+  transform: scale(1.05);
+}
+
+/* "BUTTONS" section */
+
+button {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 0 0 black;
+  color: black;
+  width: auto;
+  padding: 10px;
+  margin: 25px 0 -15px 0;
+  background-color: lightgreen;
+  border-radius: 20px;
+}
+
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 0 black;
+}
+
+.rainbow {
+  animation: rainbow 10s linear infinite
+}
+
+.rainbow-fast {
+  animation: rainbow 5s linear infinite
+}
+
+@keyframes rainbow {
+  0% {
+    /*background-color: red;*/
+    background-image: linear-gradient(45deg, red, orange);
+  }
+  14% {
+    /*background-color: orangered;*/
+    background-image: linear-gradient(45deg, orangered, orange);
+  }
+  28% {
+    /*background-color: orange;*/
+    background-image: linear-gradient(45deg, orange, yellow);
+  }
+  42% {
+    /*background-color: yellow;*/
+    background-image: linear-gradient(45deg, yellow, yellowgreen);
+  }
+  56% {
+    /*background-color: yellowgreen;*/
+    background-image: linear-gradient(45deg, greenyellow, lightgreen);
+  }
+  70% {
+    /*background-color: lightgreen;*/
+    background-image: linear-gradient(45deg, lightgreen, orange);
+  }
+  84% {
+    /*background-color: orange;*/
+    background-image: linear-gradient(45deg, orange, red);
+  }
+  98% {
+    /*background-color: red;*/
+    background-image: linear-gradient(45deg, red, orange);
+  }
+  100% {
+    /*background-color: red;*/
+    background-image: linear-gradient(45deg, red, orange);
+  }
+}
+
+/* FOOTER */
+
+footer {
+  padding-top: 30px;
+  background-image: linear-gradient(45deg, greenyellow, green);
+}
+
+
+/* From Uiverse.io by vamsidevendrakumar */ 
+.card {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: yellowgreen;
+  color: #000;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(180deg);
+}
+
+.login-btn-image img {
+  width: 10px;
+  height: 1ppx;
+  border: 5px;
+  border-radius: 10px;
+}
+
+.login-btn-image {
+  padding: 10px;
+}
+
+.rotate {
+  animation: 
+}
+
+@keyframes rotation {
+  from {
+    
+  }
+  to 
+}

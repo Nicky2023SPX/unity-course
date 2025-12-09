@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Benvenuti alle Unity's news!",
+        "uuid": "93ed9954-cdbe-48d8-a440-f6facac85873",
+        "subtitle": "Una piccola introduzione a questa pagina!",
+        "showInHomepage": true,
+        "content": {
+            "title": "Le Unity News",
+            "body": "<h1>Cosa sono le Unity News?</h1> Le Unity news sono un metodo per comunicare agli studenti di Unity e anche alle persone esterne le notizie più importanti sull'argomento."
+        }
+    },
+    {
+        "title": "Annullata la produzione di \"The Delivery Boss\"",
+        "uuid": "83a7a9ff-0aa9-4b48-8572-ec763b20e1e6",
+        "subtitle": "Il videogioco recentemente annunciato è già stato annullato!",
+        "showInHomepage": true,
+        "content": {
+            "title": "Addio \"The Delivery Boss\"!",
+            "body": "Il videogioco recentemente annunciato, ovvero \"The Delivery Boss\", è già stato annullato per mancanza di asset e di resources. <br> Fino a quando non ci saranno abbastanza asset per continuare il gioco, tra cui video, audio, immagini e script, il videogioco non sarà portato avanti."
+        }
+    }
+]
