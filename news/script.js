@@ -15,21 +15,24 @@ window
     console.log(data); // <-- Stampa finalmente il tuo array [0]
 
     data.forEach(element => {
-      body.innerHTML +=
-      `
-      <div class="article-card">
-        <h1>${element.title}</h1>
-        <h2>${element.subtitle}</h2>
-        <div class="article-spacing"></div>
-        <div class="article-preview-container">
-          <div class="article-preview">
-            ${element.content.body}
+      if (element.showInHomepage)
+      {
+        body.innerHTML +=
+        `
+        <div class="article-card">
+          <h1>${element.title}</h1>
+          <h2>${element.subtitle}</h2>
+          <div class="article-spacing"></div>
+          <div class="article-preview-container">
+            <div class="article-preview">
+              ${element.content.body}
+            </div>
+            <div class="article-overlay"></div>
           </div>
-          <div class="article-overlay"></div>
+          <div class="article-uuid">${element.uuid}</div>
         </div>
-        <div class="article-uuid">${element.uuid}</div>
-      </div>
-      `;
+        `;
+      }
     });
 
     document.querySelectorAll('.article-card').forEach(element => {

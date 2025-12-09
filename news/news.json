@@ -13,7 +13,7 @@
         "title": "Annullata la produzione di \"The Delivery Boss\"",
         "uuid": "83a7a9ff-0aa9-4b48-8572-ec763b20e1e6",
         "subtitle": "Il videogioco recentemente annunciato è già stato annullato!",
-        "showInHomepage": true,
+        "showInHomepage": false,
         "content": {
             "title": "Addio \"The Delivery Boss\"!",
             "body": "Il videogioco recentemente annunciato, ovvero \"The Delivery Boss\", è già stato annullato per mancanza di asset e di resources. <br> Fino a quando non ci saranno abbastanza asset per continuare il gioco, tra cui video, audio, immagini e script, il videogioco non sarà portato avanti."
