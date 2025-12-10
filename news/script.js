@@ -14,26 +14,38 @@ window
     // *Questo* è il blocco in cui 'data' è l'array/oggetto JSON parsato
     console.log(data); // <-- Stampa finalmente il tuo array [0]
 
-    data.forEach(element => {
-      if (element.showInHomepage)
-      {
-        body.innerHTML +=
-        `
-        <div class="article-card">
-          <h1>${element.title}</h1>
-          <h2>${element.subtitle}</h2>
-          <div class="article-spacing"></div>
-          <div class="article-preview-container">
-            <div class="article-preview">
-              ${element.content.body}
-            </div>
-            <div class="article-overlay"></div>
-          </div>
-          <div class="article-uuid">${element.uuid}</div>
-        </div>
-        `;
+    const categories = []
+
+    data.forEach(value => {
+      if (!categories.includes(value.category)) {
+        categories.push(value.category)
       }
-    });
+    })
+
+    categories.forEach(category => {
+      data.forEach(element => {
+        if (element.category == category && element.showInHomepage)
+        {
+          body.innerHTML +=
+          `
+          <div class="article-card">
+            <span class="w3-tag ${element.categoryColor} w3-right">${element.category}</span>
+            <h1>${element.title}</h1>
+            <h2>${element.subtitle}</h2>
+            <div class="article-spacing"></div>
+            <div class="article-preview-container">
+              <div class="article-preview">
+                ${element.content.body}
+              </div>
+              <div class="article-overlay"></div>
+            </div>
+            <div class="article-uuid">${element.uuid}</div>
+          </div>
+          `;
+        }
+      });
+    })
+    
 
     document.querySelectorAll('.article-card').forEach(element => {
       element.addEventListener('click', function() {

@@ -3,6 +3,8 @@
         "title": "Benvenuti alle Unity's news!",
         "uuid": "93ed9954-cdbe-48d8-a440-f6facac85873",
         "subtitle": "Una piccola introduzione a questa pagina!",
+        "category": "Generale",
+        "categoryColor": "w3-green",
         "showInHomepage": true,
         "content": {
             "title": "Le Unity News",
@@ -13,10 +15,36 @@
         "title": "Annullata la produzione di \"The Delivery Boss\"",
         "uuid": "83a7a9ff-0aa9-4b48-8572-ec763b20e1e6",
         "subtitle": "Il videogioco recentemente annunciato è già stato annullato!",
-        "showInHomepage": false,
+        "category": "Videogiochi",
+        "categoryColor": "w3-yellow",
+        "showInHomepage": true,
         "content": {
             "title": "Addio \"The Delivery Boss\"!",
             "body": "Il videogioco recentemente annunciato, ovvero \"The Delivery Boss\", è già stato annullato per mancanza di asset e di resources. <br> Fino a quando non ci saranno abbastanza asset per continuare il gioco, tra cui video, audio, immagini e script, il videogioco non sarà portato avanti."
+        }
+    },
+    {
+        "title": "La prima lezione di Unity!",
+        "uuid": "38d4922c-58c8-40f4-97b9-41f47b752790",
+        "subtitle": "Una piccola introduzione a questa pagina!",
+        "category": "Lezioni",
+        "categoryColor": "w3-red",
+        "showInHomepage": false,
+        "content": {
+            "title": "Ciao!",
+            "body": "muifd7u fyresyd"
+        }
+    },
+    {
+        "title": "Un altro generale",
+        "uuid": "7fd4e1c0-9c14-4f97-9ada-1927e76480a0",
+        "subtitle": "Una piccola introduzione a questa pagina!",
+        "category": "Generale",
+        "categoryColor": "w3-green",
+        "showInHomepage": false,
+        "content": {
+            "title": "Ciao!",
+            "body": "muifd7u fyresyd"
         }
     }
 ]
