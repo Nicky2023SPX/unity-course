@@ -14,6 +14,8 @@ import {
 
 // ====================================================================
 
+window.location.href = 'https://nikslabs.com?uc';
+
 window.onload = function() {
 
     // --- CONFIGURAZIONE E INIZIALIZZAZIONE ---
